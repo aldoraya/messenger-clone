@@ -5,7 +5,7 @@ interface AuthSocialButtonProps {
     onClick: () => void
 }
 
-const AusthSocicalButton: React.FC<AuthSocialButtonProps> = ({
+const AuthSocialButton: React.FC<AuthSocialButtonProps> = ({
     icon: Icon,
     onClick
 }) => {
@@ -21,4 +21,4 @@ const AusthSocicalButton: React.FC<AuthSocialButtonProps> = ({
      );
 }
  
-export default AusthSocicalButton;
+export default AuthSocialButton;

@@ -32,7 +32,7 @@ model User {
 
 model Account {
    id String @id @default(auto()) @map("_id") @db.ObjectId
-   userID String @db.ObjectId
+   userId String @db.ObjectId
    type String
    provider String
    providerAccountId String
@@ -42,9 +42,9 @@ model Account {
    token_type String?
    scope String?
    id_token String? @db.String
-   session_token String?
-
-   user User @relation(fields: [userID], references: [id], onDelete: Cascade)
+   session_state String?
+   
+   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
    @@unique([provider, providerAccountId])
 }
