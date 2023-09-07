@@ -18,8 +18,6 @@ const DekstopSidebar: React.FC<DekstopSidebarProps> = ({
     const routes = useRoutes();
     const [isOpen, setIsOpen] = useState(false);
 
-    console.log({ currentUser });
-
     return ( 
         <div className="hidden lg:fixed lg:inset-y-0 lg:left-0
         lg:z-40 lg:w-20 xl:px-6 lg:overflow-y-auto lg:bg-white

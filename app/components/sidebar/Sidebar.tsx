@@ -12,7 +12,7 @@ async function Sidebar ({ children }: {
             <DekstopSidebar currentUser={currentUser!} />
             <MobileFooter />
             <main className="lg:pl-20 h-full">
-            {children}
+                {children}
             </main>
         </div>
     )
