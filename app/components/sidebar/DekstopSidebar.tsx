@@ -7,6 +7,7 @@ import { User } from "@prisma/client";
 
 import DekstopItem from "./DekstopItem";
 import Avatar from "../Avatar";
+import SettingModal from "./SettingModal";
 
 interface DekstopSidebarProps {
     currentUser: User
@@ -19,6 +20,9 @@ const DekstopSidebar: React.FC<DekstopSidebarProps> = ({
     const [isOpen, setIsOpen] = useState(false);
 
     return ( 
+        <>
+        <SettingModal currentUser={currentUser} isOpen={isOpen} 
+        onClose={() => setIsOpen(false)} />
         <div className="hidden lg:fixed lg:inset-y-0 lg:left-0
         lg:z-40 lg:w-20 xl:px-6 lg:overflow-y-auto lg:bg-white
         lg:border-r-[1px]
@@ -44,6 +48,7 @@ const DekstopSidebar: React.FC<DekstopSidebarProps> = ({
                 </div>
             </nav>
         </div>
+        </>
      );
 }
  

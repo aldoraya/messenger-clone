@@ -27,6 +27,7 @@ const ConversationId = async ({ params }: { params: IParams }) => {
         <div className="lg:pl-80 h-full">
             <div className="h-full flex flex-col">
                 <Header conversation={conversation} />
+                {/* @ts-expect-error Server Component */}
                 <Body initialMessages={messages} />
                 <Form />
             </div>

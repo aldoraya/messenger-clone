@@ -1,5 +1,5 @@
 import getCurrentUser from "@/app/actions/getCurrentUser";
-import DekstopSidebar from "./DekstopSIdebar";
+import DekstopSidebar from "./DekstopSidebar";
 import MobileFooter from "./MobileFooter";
 
 async function Sidebar ({ children }: {

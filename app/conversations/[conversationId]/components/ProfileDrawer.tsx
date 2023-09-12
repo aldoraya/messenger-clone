@@ -5,8 +5,9 @@ import useOtherUser from "@/app/hooks/useOtherUser";
 import { Dialog, Transition } from "@headlessui/react";
 import { Conversation, User } from "@prisma/client";
 import { format } from "date-fns";
-import { Fragment, useMemo } from "react";
+import { Fragment, useMemo, useState } from "react";
 import { IoClose, IoTrash } from "react-icons/io5";
+import ConfirmModal from "./ConfirmModal";
 
 interface ProfileDrawerProps {
     data: Conversation & {
@@ -22,6 +23,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
     onClose
 }) => {
     const otherUser = useOtherUser(data);
+    const [confirmOpen, setConfirmOpen] = useState(false);
 
     const joinedDate = useMemo(() => {
         return format(new Date(otherUser.createdAt), 'PP')
@@ -39,9 +41,11 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
         return 'Active';
     }, [data]);
 
-    return ( 
+    return (
+        <>
+        <ConfirmModal isOpen={confirmOpen}  onClose={() => setConfirmOpen(false)} />
         <Transition.Root show={isOpen} as={Fragment}>
-            <Dialog as="div" className="relative z-50" onClose={onClose}>
+            <Dialog as="div" className="relative z-40" onClose={onClose}>
                 <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-500"
@@ -98,7 +102,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                                             {statusText}
                                                         </div>
                                                         <div className="flex gap-10 my-8">
-                                                            <div onClick={() => {}} className="flex flex-col
+                                                            <div onClick={() => setConfirmOpen(true)} className="flex flex-col
                                                             gap-3 items-center cursor-pointer hover:opacity-75">
                                                                 <div className="bg-neutral-100 w-10 h-10 rounded-full
                                                                 flex items-center justify-center">
@@ -147,6 +151,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                 </Transition.Child>
             </Dialog>
         </Transition.Root>
+        </>
      );
 }
  

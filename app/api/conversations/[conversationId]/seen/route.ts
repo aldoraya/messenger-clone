@@ -14,9 +14,7 @@ export async function POST(
     try {
         const currentUser = await getCurrentUser();
 
-        const {
-            conversationId
-        } = params;
+        const { conversationId } = params;
 
         if (!currentUser?.id || !currentUser?.email) {
             return new NextResponse('Unauthorized', { status: 401 });
