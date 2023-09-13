@@ -1,6 +1,7 @@
 'use client';
 
 import Avatar from "@/app/components/Avatar";
+import AvatarGroup from "@/app/components/AvatarGroup";
 import useOtherUser from "@/app/hooks/useOtherUser";
 import { FullConversationType } from "@/app/types";
 import clsx from "clsx";
@@ -68,7 +69,10 @@ interface ConversationBoxProps {
         onClick={handleClick}
         className={clsx(`w-full flex relative items-center hover:bg-neutral-300 rounded-lg transition cursor-pointer
         p-3 space-x-3`, selected ? 'bg-neutral-100' : 'bg-white')}>
-            <Avatar user={otherUser} />
+            {data.isGroup ? (
+                <AvatarGroup users={data.users} /> 
+            ) : ( <Avatar user={otherUser} />
+            )}
             <div className="min-w-0 flex-1">
                 <div className="focus:outline-none">
                     <div className="flex justify-between items-center mb-1">

@@ -30,9 +30,9 @@ import prisma from "@/app/libs/prismadb";
                     isGroup,
                     users: {
                         connect: [
-                            ...members.map((member: { value: string }) => {
+                            ...members.map((member: { value: string }) => ({
                                 id: member.value
-                            }),
+                            })),
                             {
                                 id: currentUser.id
                             }
