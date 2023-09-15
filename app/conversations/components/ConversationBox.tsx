@@ -85,7 +85,9 @@ interface ConversationBoxProps {
                             </p>
                         )}
                     </div>
-                    <p className="truncate text-sm">{lastMessageText}</p>
+                    <p className={clsx('truncate text-ms', hasSeen ?
+                    'text-gray-500' : 'text-black font-medium')}>
+                        {lastMessageText}</p>
                 </div>
             </div>
         </div>
