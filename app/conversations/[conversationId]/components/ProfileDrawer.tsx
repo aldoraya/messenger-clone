@@ -149,7 +149,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                         </dt>
                                         <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">
                                             {data.users.map((user) => (
-                                                <div className="space-y-2 block">
+                                                <div key={user.id} className="space-y-2 block">
                                                     {user.email}
                                                 </div>
                                             ))}
