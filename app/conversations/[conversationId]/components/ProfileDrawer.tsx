@@ -63,7 +63,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
             leaveFrom="opacity-1000"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-40">
+            <div className="fixed inset-0 bg-black/40">
               <div className="fixed inset-0 overflow-hidden">
                 <div className="absolute">
                   <div
@@ -91,7 +91,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                   onClick={onClose}
                                   type="button"
                                   className="rounded-md bg-white first-letter:text-gray-600 hover:text-gray-500 focus:outline-none
-                                            focus:ring-2 focus:ring-sky-500        focus:ring-offset-2"
+                                            focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
                                 >
                                   <span className="sr-only">Close panel</span>
                                   <IoClose size={24} />
@@ -110,7 +110,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                   <Avatar user={otherUser} />
                                 )}
                               </div>
-                              <div className="">{title}</div>
+                              <div>{title}</div>
                               <div className="text-sm text-gray-500">
                                 {statusText}
                               </div>
@@ -130,22 +130,22 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                 </div>
                               </div>
                               <div className="w-full py-5 sm:px-0 sm:pt-0">
-                                <dl className="space-y-8 px-4 sm:spce-y-6 sm:px-6">
+                                <dl className="space-y-8 px-4 sm:space-y-6 sm:px-6">
                                   {!data.isGroup ? (
                                     <div>
                                       <dt
                                         className="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0"
                                       >
-                                        Email
+                                        Emails
                                       </dt>
-                                      <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">
+                                      <dd className="mt-1 text-sm text-gray-900 sm:w-40 sm:flex-shrink-0">
                                         {otherUser.email}
                                       </dd>
                                     </div>
                                   ) : (
                                     <div>
-                                        <dt className="text-sm font-medium text-gray-900 sm:col-span-2">
-                                            Emails
+                                        <dt className="text-sm font-medium text-gray-500 sm:col-span-2">
+                                            Email
                                         </dt>
                                         <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">
                                             {data.users.map((user) => (
